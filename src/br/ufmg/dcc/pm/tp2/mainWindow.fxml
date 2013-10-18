@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane alignment="CENTER" hgap="0.0" minHeight="-1.0" minWidth="-1.0" prefHeight="374.0" prefWidth="407.0" vgap="0.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="br.ufmg.dcc.pm.tp2.MainWindow">
+  <children>
+    <MenuBar maxHeight="-1.0" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+      <menus>
+        <Menu mnemonicParsing="false" text="Arquivo">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#onNovoClicked" text="&amp;Novo" fx:id="action_Novo" />
+            <MenuItem mnemonicParsing="false" onAction="#onSairClicked" text="&amp;Sair" fx:id="action_Sair" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <TitledPane animated="false" minHeight="-Infinity" minWidth="-Infinity" text="Pesquisa" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+      <content>
+        <AnchorPane id="Content" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="400.0">
+          <children>
+            <HBox layoutX="0.0" layoutY="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="400.0" spacing="5.0">
+              <children>
+                <TextField id="leSearch" fx:id="leQuery" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <ComboBox fx:id="cbSearch" prefHeight="21.0" prefWidth="111.0" promptText="Mostrar Todos">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Mostrar Todos" />
+                      <String fx:value="Autor" />
+                      <String fx:value="Ano" />
+                      <String fx:value="Veículo" />
+                      <String fx:value="Título" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Button fx:id="pbSearch" mnemonicParsing="false" onAction="#handlePbSearchAction" text="Filtrar" />
+              </children>
+            </HBox>
+          </children>
+        </AnchorPane>
+      </content>
+    </TitledPane>
+    <HBox minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" spacing="3.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+      <children>
+        <ListView fx:id="lwAllBibtex" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0000999999975" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+        <FlowPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+          <children>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="lbReference" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Referência" HBox.hgrow="ALWAYS">
+                  <labelFor>
+                    <TextField id="leReferencia" fx:id="leReference" minWidth="-1.0" prefWidth="200.0" />
+                  </labelFor>
+                </Label>
+                <fx:reference source="leReference" />
+              </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="lbAuthor" minHeight="-Infinity" minWidth="-Infinity" text="Autor">
+                  <labelFor>
+                    <TextField fx:id="leAuthor" prefWidth="200.0" />
+                  </labelFor>
+                </Label>
+                <fx:reference source="leAuthor" />
+              </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="lbTitle" minWidth="-Infinity" text="Título">
+                  <labelFor>
+                    <TextField fx:id="leTitle" prefWidth="200.0" />
+                  </labelFor>
+                </Label>
+                <fx:reference source="leTitle" />
+              </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="lbYear" minHeight="-Infinity" minWidth="-Infinity" text="Ano">
+                  <labelFor>
+                    <TextField fx:id="leYear" prefWidth="200.0" />
+                  </labelFor>
+                </Label>
+                <fx:reference source="leYear" />
+              </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="lbPublisher" minHeight="-Infinity" minWidth="-Infinity" text="Editora">
+                  <labelFor>
+                    <TextField id="leEditor" fx:id="lePublisher" prefWidth="200.0" />
+                  </labelFor>
+                </Label>
+                <fx:reference source="lePublisher" />
+              </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="lbJournal" minHeight="-Infinity" minWidth="-Infinity" text="Periódico">
+                  <labelFor>
+                    <TextField fx:id="leJournal" prefWidth="200.0" />
+                  </labelFor>
+                </Label>
+                <fx:reference source="leJournal" />
+              </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="lbVolume" minHeight="-Infinity" minWidth="-Infinity" text="Volume">
+                  <labelFor>
+                    <TextField id="leVolulme" fx:id="leVolume" prefWidth="200.0" />
+                  </labelFor>
+                </Label>
+                <fx:reference source="leVolume" />
+              </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="lbNumber" minHeight="-Infinity" minWidth="-Infinity" text="Número">
+                  <labelFor>
+                    <TextField fx:id="leNumber" prefWidth="200.0" />
+                  </labelFor>
+                </Label>
+                <fx:reference source="leNumber" />
+              </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="lbPages" minHeight="-Infinity" minWidth="-Infinity" text="Páginas">
+                  <labelFor>
+                    <TextField fx:id="lePages" prefWidth="200.0" />
+                  </labelFor>
+                </Label>
+                <fx:reference source="lePages" />
+              </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="lbBookTitle" minHeight="-Infinity" minWidth="-Infinity" text="Título do livro">
+                  <labelFor>
+                    <TextField fx:id="leBookTitle" prefWidth="200.0" />
+                  </labelFor>
+                </Label>
+                <fx:reference source="leBookTitle" />
+              </children>
+            </HBox>
+            <Label minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0" text="" />
+            <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="200.0" spacing="50.0">
+              <children>
+                <Button fx:id="pbSave" maxHeight="-Infinity" maxWidth="80.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handlePbSaveAction" text="Salvar" HBox.hgrow="ALWAYS" />
+                <Button fx:id="pbRemove" maxHeight="-Infinity" maxWidth="80.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handlePbRemoveAction" text="Remover" HBox.hgrow="ALWAYS" />
+              </children>
+            </HBox>
+          </children>
+        </FlowPane>
+      </children>
+    </HBox>
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" valignment="TOP" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" valignment="TOP" vgrow="ALWAYS" />
+  </rowConstraints>
+</GridPane>
