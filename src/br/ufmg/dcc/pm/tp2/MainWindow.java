@@ -83,22 +83,11 @@ public class MainWindow implements Initializable {
     public Button pbSave;
     private ListChangeListener<BibtexFormat> allBibTexListener;
     private Stage stage;
+    private String file;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            fileio = new BibFileIO("C:\\Users\\Pablo\\Documents\\UFMG\\2013-2\\pm\\tp2\\out\\production\\file.bib");
-            allBibTexListener = new ListChangeListener<BibtexFormat>() {
-                @Override
-                public void onChanged(Change<? extends BibtexFormat> change) {
-                    selectionChangedSlot();
-                }
-            };
-            filterAllBibtex();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            Dialogs.showInformationDialog(stage, "Erro ao ler arquivo BibTex.", null, "PMCC-TP2");
-        }
+
     }
 
     public void handlePbSaveAction(ActionEvent actionEvent) {
@@ -402,6 +391,23 @@ public class MainWindow implements Initializable {
 
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+        try {
+            fileio = new BibFileIO(file);
+            allBibTexListener = new ListChangeListener<BibtexFormat>() {
+                @Override
+                public void onChanged(Change<? extends BibtexFormat> change) {
+                    selectionChangedSlot();
+                }
+            };
+            filterAllBibtex();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Dialogs.showInformationDialog(stage, "Erro ao ler arquivo BibTex.", null, "PMCC-TP2");
+        }
     }
 
     private class RequiredFieldException extends Throwable {
