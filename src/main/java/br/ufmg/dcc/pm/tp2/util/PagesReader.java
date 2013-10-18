@@ -1,12 +1,14 @@
-package br.ufmg.dcc.pm.tp2;
+package br.ufmg.dcc.pm.tp2.util;
+
+import br.ufmg.dcc.pm.tp2.bibtex.Pages;
 
 public class PagesReader {
-    static Pages parsePages(String text) throws Exception {
+    public static Pages parsePages(String text) throws Exception {
         String values = Util.parseField("pages",text);
         return parsePagesFromValue(values);
     }
 
-    static Pages parsePagesFromValue(String values) throws Exception {
+    public static Pages parsePagesFromValue(String values) throws Exception {
         Pages pages = new Pages();
 
         String[] commaSplit = values.split(",");

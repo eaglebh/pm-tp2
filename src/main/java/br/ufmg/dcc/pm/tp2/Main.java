@@ -51,8 +51,6 @@ public class Main extends Application {
 
         primaryStage.setScene(new Scene(rootGroup));
         primaryStage.show();
-
-
     }
 
     private void showApplication(Stage primaryStage, File file) throws IOException {

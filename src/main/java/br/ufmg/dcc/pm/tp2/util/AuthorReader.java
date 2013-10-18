@@ -1,15 +1,17 @@
-package br.ufmg.dcc.pm.tp2;
+package br.ufmg.dcc.pm.tp2.util;
+
+import br.ufmg.dcc.pm.tp2.bibtex.Authors;
 
 import java.util.Scanner;
 
 public class AuthorReader {
-    static Authors parseAuthors(String text) throws Exception {
+    public static Authors parseAuthors(String text) throws Exception {
         String values = Util.parseField("author", text);
 
         return parseAuthorsFromValue(values);
     }
 
-    static Authors parseAuthorsFromValue(String values) {
+    public static Authors parseAuthorsFromValue(String values) {
         Authors authors = new Authors();
         Scanner iss = new Scanner(values);
         String word;

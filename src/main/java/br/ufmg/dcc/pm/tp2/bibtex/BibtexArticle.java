@@ -1,4 +1,4 @@
-package br.ufmg.dcc.pm.tp2;
+package br.ufmg.dcc.pm.tp2.bibtex;
 
 public class BibtexArticle extends BibtexHasPages {
     private String journal;

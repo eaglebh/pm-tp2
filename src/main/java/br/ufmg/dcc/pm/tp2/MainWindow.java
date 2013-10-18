@@ -1,5 +1,9 @@
 package br.ufmg.dcc.pm.tp2;
 
+import br.ufmg.dcc.pm.tp2.bibtex.*;
+import br.ufmg.dcc.pm.tp2.persistence.BibFileIO;
+import br.ufmg.dcc.pm.tp2.util.AuthorReader;
+import br.ufmg.dcc.pm.tp2.util.PagesReader;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;

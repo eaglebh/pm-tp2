@@ -1,4 +1,4 @@
-package br.ufmg.dcc.pm.tp2;
+package br.ufmg.dcc.pm.tp2.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,7 +23,7 @@ public class Util {
         return stripBrackets(text);
     }
 
-    static String parseField(String fieldName, String text) throws Exception {
+    public static String parseField(String fieldName, String text) throws Exception {
         String regex = "(" + fieldName + "\\s+\\=\\s[\\{\"]*)([^\\}\"]*)([\\}\"]*,)";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
@@ -35,7 +35,7 @@ public class Util {
         }
     }
 
-    static int parseIntField(String fieldName, String text) throws Exception {
+    public static int parseIntField(String fieldName, String text) throws Exception {
         return parseInt(parseField(fieldName, text));
     }
 }
