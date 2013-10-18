@@ -142,13 +142,21 @@ public class MainWindow implements Initializable {
         }
     }
 
-    void saveBibtex(BibtexFormat bib) {
+    private String checkRequiredField(TextField field) throws RequiredFieldException {
+        String text = field.getText();
+        if(text.isEmpty()) {
+            throw new RequiredFieldException(field);
+        }
+        return text;
+    }
+
+    void saveBibtex(BibtexFormat bib) throws RequiredFieldException {
         if (bib instanceof BibtexArticle) {
-            ((BibtexArticle) bib).setJournal(leJournal.getText());
-            ((BibtexArticle) bib).setVolume(Integer.parseInt(leVolume.getText()));
-            ((BibtexArticle) bib).setNumber(Integer.parseInt(leNumber.getText()));
+            ((BibtexArticle) bib).setJournal(checkRequiredField(leJournal));
+            ((BibtexArticle) bib).setVolume(Integer.parseInt(checkRequiredField(leVolume)));
+            ((BibtexArticle) bib).setNumber(Integer.parseInt(checkRequiredField(leNumber)));
             try {
-                ((BibtexArticle) bib).setPages(PagesReader.parsePagesFromValue(lePages.getText()));
+                ((BibtexArticle) bib).setPages(PagesReader.parsePagesFromValue(checkRequiredField(lePages)));
             } catch (Exception e) {
                 e.printStackTrace();
                 Dialogs.showInformationDialog(stage, "Erro ao salvar BibTex.", null, "PMCC-TP2");
@@ -156,12 +164,12 @@ public class MainWindow implements Initializable {
             }
         } else {
             if (bib instanceof BibtexBook) {
-                ((BibtexBook) bib).setPublisher(lePublisher.getText());
+                ((BibtexBook) bib).setPublisher(checkRequiredField(lePublisher));
             } else {
                 if (bib instanceof BibtexInproceedings) {
-                    ((BibtexInproceedings) bib).setBooktitle(leBookTitle.getText());
+                    ((BibtexInproceedings) bib).setBooktitle(checkRequiredField(leBookTitle));
                     try {
-                        ((BibtexInproceedings) bib).setPages(PagesReader.parsePagesFromValue(lePages.getText()));
+                        ((BibtexInproceedings) bib).setPages(PagesReader.parsePagesFromValue(checkRequiredField(lePages)));
                     } catch (Exception e) {
                         e.printStackTrace();
                         Dialogs.showInformationDialog(stage, "Erro ao salvar BibTex.", null, "PMCC-TP2");
@@ -170,10 +178,10 @@ public class MainWindow implements Initializable {
                 }
             }
         }
-        bib.setAuthors(AuthorReader.parseAuthorsFromValue(leAuthor.getText()));
-        bib.setTitle(leTitle.getText());
-        bib.setYear(Long.parseLong(leYear.getText()));
-        bib.setReference(leReference.getText());
+        bib.setAuthors(AuthorReader.parseAuthorsFromValue(checkRequiredField(leAuthor)));
+        bib.setTitle(checkRequiredField(leTitle));
+        bib.setYear(Long.parseLong(checkRequiredField(leYear)));
+        bib.setReference(checkRequiredField(leReference));
         try {
             fileio.persist();
         } catch (IOException e) {
@@ -224,6 +232,10 @@ public class MainWindow implements Initializable {
     }
 
     public void saveButtonClicked() {
+        if(leReference.getText().isEmpty()) {
+            Dialogs.showErrorDialog(stage, "É preciso preencher a referência.", null, "PMCC-TP2");
+            return;
+        }
         BibtexFormat bib = null;
         try {
             bib = fileio.getBibFile().retrieveBibtex(BibFile.SearchCriteria.REFERENCE, leReference.getText());
@@ -240,10 +252,16 @@ public class MainWindow implements Initializable {
                     LOGGER.warning(e1.getLocalizedMessage());
                     Dialogs.showInformationDialog(stage, "Não encontrou BibTex modificado para salvar e nenhum foi criado.", null, "PMCC-TP2");
                 }
-                saveBibtex(bib);
+                try {
+                    saveBibtex(bib);
+                } catch (RequiredFieldException e1) {
+                    e1.showMessage();
+                }
             } else {
                 Dialogs.showInformationDialog(stage, "Não encontrou BibTex modificado para salvar e nenhum foi criado.", null, "PMCC-TP2");
             }
+        } catch (RequiredFieldException e) {
+            e.showMessage();
         }
     }
 
@@ -393,5 +411,16 @@ public class MainWindow implements Initializable {
 
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+    private class RequiredFieldException extends Throwable {
+        private final String toolTip;
+
+        public RequiredFieldException(TextField field) {
+            toolTip = field.getPromptText();
+        }
+        public void showMessage() {
+            Dialogs.showErrorDialog(stage, "Favor preencher o campo " + toolTip, null, "PMCC-TP2");
+        }
     }
 }

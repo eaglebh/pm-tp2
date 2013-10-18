@@ -24,14 +24,12 @@ public class Pages {
     public static String getPagesText(Pages pages) {
         StringBuilder pagesText = new StringBuilder();
         List<Integer> pageNumbers = pages.getPageNumbers();
-        boolean first = true;
         int last = 0;
         boolean endSequence = false;
         for (Integer it : pageNumbers) {
-            if (first) {
+            if (pagesText.length() == 0) {
                 last = it;
                 pagesText.append(it);
-                first = false;
             } else {
                 if ((last + 1) == it) { // sequencia identificada
                     last = it;
@@ -39,16 +37,16 @@ public class Pages {
                 } else { // quebra de sequencia
                     if (endSequence) {
                         endSequence = false;
-                        pagesText.append("-").append(last).append(',').append(it).append(',');
+                        pagesText.append("-").append(last).append(',').append(it);
                     } else {
-                        pagesText.append(it).append(',');
+                        pagesText.append(',').append(it);
                     }
+                    last = it;
                 }
             }
         }
         if (endSequence) {
-            endSequence = false;
-            pagesText.append("-").append(last).append(',');
+            pagesText.append("-").append(last);
         }
         return pagesText.toString();
     }

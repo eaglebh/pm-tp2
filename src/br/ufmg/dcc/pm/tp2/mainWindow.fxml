@@ -27,7 +27,7 @@
           <children>
             <HBox layoutX="0.0" layoutY="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="400.0" spacing="5.0">
               <children>
-                <TextField id="leSearch" fx:id="leQuery" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <TextField id="leSearch" fx:id="leQuery" prefWidth="200.0" promptText="Pesquisa" HBox.hgrow="ALWAYS" />
                 <ComboBox fx:id="cbSearch" prefHeight="21.0" prefWidth="111.0" promptText="Mostrar Todos">
                   <items>
                     <FXCollections fx:factory="observableArrayList">
@@ -55,7 +55,7 @@
               <children>
                 <Label fx:id="lbReference" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Referência" HBox.hgrow="ALWAYS">
                   <labelFor>
-                    <TextField id="leReferencia" fx:id="leReference" minWidth="-1.0" prefWidth="200.0" />
+                    <TextField id="leReferencia" fx:id="leReference" minWidth="-1.0" prefWidth="200.0" promptText="Referência" />
                   </labelFor>
                 </Label>
                 <fx:reference source="leReference" />
@@ -65,7 +65,7 @@
               <children>
                 <Label fx:id="lbAuthor" minHeight="-Infinity" minWidth="-Infinity" text="Autor">
                   <labelFor>
-                    <TextField fx:id="leAuthor" prefWidth="200.0" />
+                    <TextField fx:id="leAuthor" prefWidth="200.0" promptText="Autor" />
                   </labelFor>
                 </Label>
                 <fx:reference source="leAuthor" />
@@ -75,7 +75,7 @@
               <children>
                 <Label fx:id="lbTitle" minWidth="-Infinity" text="Título">
                   <labelFor>
-                    <TextField fx:id="leTitle" prefWidth="200.0" />
+                    <TextField fx:id="leTitle" prefWidth="200.0" promptText="Título" />
                   </labelFor>
                 </Label>
                 <fx:reference source="leTitle" />
@@ -85,7 +85,7 @@
               <children>
                 <Label fx:id="lbYear" minHeight="-Infinity" minWidth="-Infinity" text="Ano">
                   <labelFor>
-                    <TextField fx:id="leYear" prefWidth="200.0" />
+                    <TextField fx:id="leYear" prefWidth="200.0" promptText="Ano" />
                   </labelFor>
                 </Label>
                 <fx:reference source="leYear" />
@@ -95,7 +95,7 @@
               <children>
                 <Label fx:id="lbPublisher" minHeight="-Infinity" minWidth="-Infinity" text="Editora">
                   <labelFor>
-                    <TextField id="leEditor" fx:id="lePublisher" prefWidth="200.0" />
+                    <TextField id="leEditor" fx:id="lePublisher" prefWidth="200.0" promptText="Editora" />
                   </labelFor>
                 </Label>
                 <fx:reference source="lePublisher" />
@@ -105,7 +105,7 @@
               <children>
                 <Label fx:id="lbJournal" minHeight="-Infinity" minWidth="-Infinity" text="Periódico">
                   <labelFor>
-                    <TextField fx:id="leJournal" prefWidth="200.0" />
+                    <TextField fx:id="leJournal" prefWidth="200.0" promptText="Periódico" />
                   </labelFor>
                 </Label>
                 <fx:reference source="leJournal" />
@@ -115,7 +115,7 @@
               <children>
                 <Label fx:id="lbVolume" minHeight="-Infinity" minWidth="-Infinity" text="Volume">
                   <labelFor>
-                    <TextField id="leVolulme" fx:id="leVolume" prefWidth="200.0" />
+                    <TextField id="leVolulme" fx:id="leVolume" prefWidth="200.0" promptText="Volume" />
                   </labelFor>
                 </Label>
                 <fx:reference source="leVolume" />
@@ -125,7 +125,7 @@
               <children>
                 <Label fx:id="lbNumber" minHeight="-Infinity" minWidth="-Infinity" text="Número">
                   <labelFor>
-                    <TextField fx:id="leNumber" prefWidth="200.0" />
+                    <TextField fx:id="leNumber" prefWidth="200.0" promptText="Número" />
                   </labelFor>
                 </Label>
                 <fx:reference source="leNumber" />
@@ -135,7 +135,7 @@
               <children>
                 <Label fx:id="lbPages" minHeight="-Infinity" minWidth="-Infinity" text="Páginas">
                   <labelFor>
-                    <TextField fx:id="lePages" prefWidth="200.0" />
+                    <TextField fx:id="lePages" prefWidth="200.0" promptText="Páginas" />
                   </labelFor>
                 </Label>
                 <fx:reference source="lePages" />
@@ -145,7 +145,7 @@
               <children>
                 <Label fx:id="lbBookTitle" minHeight="-Infinity" minWidth="-Infinity" text="Título do livro">
                   <labelFor>
-                    <TextField fx:id="leBookTitle" prefWidth="200.0" />
+                    <TextField fx:id="leBookTitle" prefWidth="200.0" promptText="Título do livro" />
                   </labelFor>
                 </Label>
                 <fx:reference source="leBookTitle" />
