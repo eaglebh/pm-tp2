@@ -1,4 +1,4 @@
-package br.ufmg.dcc.pm.tp2;
+package br.ufmg.dcc.pm.tp2.bibtex;
 
 public class BibtexBook extends BibtexFormat {
     private String publisher;

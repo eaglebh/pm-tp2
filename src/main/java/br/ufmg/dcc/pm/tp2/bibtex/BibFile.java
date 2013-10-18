@@ -1,4 +1,8 @@
-package br.ufmg.dcc.pm.tp2;
+package br.ufmg.dcc.pm.tp2.bibtex;
+
+import br.ufmg.dcc.pm.tp2.bibtex.BibtexArticle;
+import br.ufmg.dcc.pm.tp2.bibtex.BibtexFormat;
+import br.ufmg.dcc.pm.tp2.bibtex.BibtexInproceedings;
 
 import java.util.ArrayList;
 import java.util.List;

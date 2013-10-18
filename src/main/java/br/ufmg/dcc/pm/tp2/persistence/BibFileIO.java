@@ -1,4 +1,9 @@
-package br.ufmg.dcc.pm.tp2;
+package br.ufmg.dcc.pm.tp2.persistence;
+
+import br.ufmg.dcc.pm.tp2.bibtex.*;
+import br.ufmg.dcc.pm.tp2.util.AuthorReader;
+import br.ufmg.dcc.pm.tp2.util.PagesReader;
+import br.ufmg.dcc.pm.tp2.util.Util;
 
 import java.io.*;
 import java.util.Scanner;
