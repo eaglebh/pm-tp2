@@ -20,7 +20,7 @@ import java.io.IOException;
 public class Main extends Application {
 
     @Override
-    public void start(final Stage primaryStage) throws Exception{
+    public void start(final Stage primaryStage) throws Exception {
 
         final FileChooser fileChooser = new FileChooser();
 
