@@ -92,9 +92,7 @@ public class BibFile {
 
     public String toText() {
         StringBuilder stringBuilder = new StringBuilder();
-        ListIterator<BibtexFormat> findIter = bibs.listIterator();
-        while (findIter.hasNext()) {
-            BibtexFormat bib = findIter.next();
+        for (BibtexFormat bib : bibs) {
             stringBuilder.append(bib.getHeader());
             stringBuilder.append(bib.getRequiredFieldsText());
             stringBuilder.append("}\n");

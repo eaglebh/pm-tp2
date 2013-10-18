@@ -1,6 +1,5 @@
 package br.ufmg.dcc.pm.tp2;
 
-import com.sun.javafx.collections.transformation.SortedList;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -144,7 +143,7 @@ public class MainWindow implements Initializable {
 
     private String checkRequiredField(TextField field) throws RequiredFieldException {
         String text = field.getText();
-        if(text.isEmpty()) {
+        if (text.isEmpty()) {
             throw new RequiredFieldException(field);
         }
         return text;
@@ -232,7 +231,7 @@ public class MainWindow implements Initializable {
     }
 
     public void saveButtonClicked() {
-        if(leReference.getText().isEmpty()) {
+        if (leReference.getText().isEmpty()) {
             Dialogs.showErrorDialog(stage, "É preciso preencher a referência.", null, "PMCC-TP2");
             return;
         }
@@ -277,10 +276,6 @@ public class MainWindow implements Initializable {
         }
     }
 
-    public void createButtonClicked() {
-
-    }
-
     public void newButtonClicked() {
         List<String> bibtexTypes = new ArrayList<String>();
         String book = "Livro";
@@ -315,10 +310,6 @@ public class MainWindow implements Initializable {
             }
         }
         fileio.getBibFile().createBibtex(bib);
-    }
-
-    public void filterSelectionChanged(int index) {
-        LOGGER.fine("mudou para" + index);
     }
 
     public void searchButtonClicked() {
@@ -419,6 +410,7 @@ public class MainWindow implements Initializable {
         public RequiredFieldException(TextField field) {
             toolTip = field.getPromptText();
         }
+
         public void showMessage() {
             Dialogs.showErrorDialog(stage, "Favor preencher o campo " + toolTip, null, "PMCC-TP2");
         }

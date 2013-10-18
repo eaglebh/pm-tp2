@@ -35,10 +35,6 @@ public class Util {
         }
     }
 
-    static void test() {
-
-    }
-
     static int parseIntField(String fieldName, String text) throws Exception {
         return parseInt(parseField(fieldName, text));
     }
